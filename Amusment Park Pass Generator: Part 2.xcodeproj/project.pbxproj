@@ -12,6 +12,15 @@
 		D4209C4B1D45677C009B2132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4209C491D45677C009B2132 /* Main.storyboard */; };
 		D4209C4D1D45677C009B2132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4209C4C1D45677C009B2132 /* Assets.xcassets */; };
 		D4209C501D45677C009B2132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */; };
+		D4209C581D45682A009B2132 /* Entrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C571D45682A009B2132 /* Entrant.swift */; };
+		D4209C5A1D456837009B2132 /* KioskControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C591D456837009B2132 /* KioskControl.swift */; };
+		D4209C5C1D456840009B2132 /* ParkPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C5B1D456840009B2132 /* ParkPass.swift */; };
+		D4209C5F1D456889009B2132 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C5E1D456889009B2132 /* Guest.swift */; };
+		D4209C611D456891009B2132 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C601D456891009B2132 /* Employee.swift */; };
+		D4209C631D456897009B2132 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C621D456897009B2132 /* Manager.swift */; };
+		D4209C651D4568A1009B2132 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C641D4568A1009B2132 /* Errors.swift */; };
+		D4209C671D4568AB009B2132 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C661D4568AB009B2132 /* Sound.swift */; };
+		D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C681D4568B3009B2132 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		D4209C4C1D45677C009B2132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4209C4F1D45677C009B2132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4209C511D45677C009B2132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4209C571D45682A009B2132 /* Entrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrant.swift; sourceTree = "<group>"; };
+		D4209C591D456837009B2132 /* KioskControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KioskControl.swift; sourceTree = "<group>"; };
+		D4209C5B1D456840009B2132 /* ParkPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkPass.swift; sourceTree = "<group>"; };
+		D4209C5E1D456889009B2132 /* Guest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
+		D4209C601D456891009B2132 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		D4209C621D456897009B2132 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		D4209C641D4568A1009B2132 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D4209C661D4568AB009B2132 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		D4209C681D4568B3009B2132 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +74,37 @@
 			children = (
 				D4209C451D45677C009B2132 /* AppDelegate.swift */,
 				D4209C471D45677C009B2132 /* ViewController.swift */,
+				D4209C5D1D456844009B2132 /* ParkModels */,
+				D4209C6A1D4568B8009B2132 /* EntrantModels */,
+				D4209C641D4568A1009B2132 /* Errors.swift */,
+				D4209C661D4568AB009B2132 /* Sound.swift */,
+				D4209C681D4568B3009B2132 /* DateFormatter.swift */,
 				D4209C491D45677C009B2132 /* Main.storyboard */,
 				D4209C4C1D45677C009B2132 /* Assets.xcassets */,
 				D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */,
 				D4209C511D45677C009B2132 /* Info.plist */,
 			);
 			path = "Amusment Park Pass Generator: Part 2";
+			sourceTree = "<group>";
+		};
+		D4209C5D1D456844009B2132 /* ParkModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4209C571D45682A009B2132 /* Entrant.swift */,
+				D4209C591D456837009B2132 /* KioskControl.swift */,
+				D4209C5B1D456840009B2132 /* ParkPass.swift */,
+			);
+			name = ParkModels;
+			sourceTree = "<group>";
+		};
+		D4209C6A1D4568B8009B2132 /* EntrantModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4209C5E1D456889009B2132 /* Guest.swift */,
+				D4209C601D456891009B2132 /* Employee.swift */,
+				D4209C621D456897009B2132 /* Manager.swift */,
+			);
+			name = EntrantModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +178,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4209C5C1D456840009B2132 /* ParkPass.swift in Sources */,
+				D4209C581D45682A009B2132 /* Entrant.swift in Sources */,
+				D4209C5F1D456889009B2132 /* Guest.swift in Sources */,
+				D4209C631D456897009B2132 /* Manager.swift in Sources */,
+				D4209C611D456891009B2132 /* Employee.swift in Sources */,
+				D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */,
+				D4209C671D4568AB009B2132 /* Sound.swift in Sources */,
 				D4209C481D45677C009B2132 /* ViewController.swift in Sources */,
 				D4209C461D45677C009B2132 /* AppDelegate.swift in Sources */,
+				D4209C651D4568A1009B2132 /* Errors.swift in Sources */,
+				D4209C5A1D456837009B2132 /* KioskControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
