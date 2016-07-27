@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //-----------------------
     //MARK: Enum
@@ -48,14 +48,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var stateTextField: TextField!
     @IBOutlet weak var zipCodeTextField: TextField!
     
+    //Array of all the text fields
     @IBOutlet var textFieldArray: [TextField]!
+    
     //-----------------------
     //MARK: View
     //-----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set the delegate for each text field
+        for textField in textFieldArray {
+            
+            textField.delegate = self
+        }
         
+        //Add tap gesture recognizer to dismiss the keyboard when the user taps outside of the text field
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -79,14 +89,20 @@ class ViewController: UIViewController {
             
         case "Manager":
             
+            resetTextFields()
+            selectedEntrant = .Manger
             createEntrantSubTypeStackView(withEntant: .Manger)
             
         case "Contractor":
             
+            resetTextFields()
+            selectedEntrant = .Contractor
             createEntrantSubTypeStackView(withEntant: .Contractor)
             
         case "Vendor":
             
+            resetTextFields()
+            selectedEntrant = .Vendor
             createEntrantSubTypeStackView(withEntant: .Vendor)
             
         default:
@@ -113,7 +129,7 @@ class ViewController: UIViewController {
                 
             case "Child":
                 
-                return
+               return
             
             case "Adult":
                 
@@ -137,12 +153,95 @@ class ViewController: UIViewController {
             
         case .Employee:
             
-            activateTextFieldsForEmployeesAndManagers()
+            switch buttonTitle {
+                
+            case "Food Services":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            case "Ride Services":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            case "Maintenance":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            default:
+                return
+            }
             
         case .Manger:
             
-            activateTextFieldsForEmployeesAndManagers()
+            switch buttonTitle {
+                
+            case "Senior":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            case "General":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            case "Shift":
+                
+                activateTextFieldsForEmployeesAndManagers()
+                
+            default:
+                return
+            }
             
+        case .Contractor:
+            
+            switch buttonTitle {
+                
+            case "1001":
+                
+                activateTextFieldsForContractors()
+                
+            case "1002":
+                
+                activateTextFieldsForContractors()
+                
+            case "1003":
+                
+                activateTextFieldsForContractors()
+                
+            case "2001":
+                
+                activateTextFieldsForContractors()
+                
+            case "2002":
+                
+                activateTextFieldsForContractors()
+                
+            default:
+                return
+            }
+            
+        case .Vendor:
+            
+            switch buttonTitle {
+                
+            case "Acme":
+                
+                activateTextFieldsForVendors()
+                
+            case "Orkin":
+                
+                activateTextFieldsForVendors()
+                
+            case "Fedex":
+                
+                activateTextFieldsForVendors()
+                
+            case "NW Electrical":
+                
+                activateTextFieldsForVendors()
+                
+            default:
+                return
+            }
             
         default:
             return
@@ -151,14 +250,31 @@ class ViewController: UIViewController {
     
     func activateTextFieldsForEmployeesAndManagers() {
         
-        dateOfBirthTextField.changeState = true
+        ssnTextField.changeState = true
         firstNameTextField.changeState = true
         lastNameTextField.changeState = true
         addressTextField.changeState = true
         cityTextField.changeState = true
         stateTextField.changeState = true
         zipCodeTextField.changeState = true
+    }
+    
+    func activateTextFieldsForContractors() {
         
+        projectNumberTextField.changeState = true
+        firstNameTextField.changeState = true
+        lastNameTextField.changeState = true
+        addressTextField.changeState = true
+        cityTextField.changeState = true
+        stateTextField.changeState = true
+        zipCodeTextField.changeState = true
+    }
+    
+    func activateTextFieldsForVendors() {
+        
+        firstNameTextField.changeState = true
+        lastNameTextField.changeState = true
+        companyTextField.changeState = true
     }
     
     func createButton(withTitle title: String, tag: Int, selector: Selector) -> UIButton {
@@ -200,28 +316,28 @@ class ViewController: UIViewController {
             
             removeButtonsFromStackView()
             
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Senior", tag: 0, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "General", tag: 1, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Shift", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Senior", tag: 0, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "General", tag: 1, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Shift", tag: 2, selector: #selector(selectedEntrantSubType)))
             
         case .Contractor:
             
             removeButtonsFromStackView()
             
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1001", tag: 0, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1002", tag: 1, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1003", tag: 2, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2001", tag: 2, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2002", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1001", tag: 0, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1002", tag: 1, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1003", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2001", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2002", tag: 2, selector: #selector(selectedEntrantSubType)))
             
         case .Vendor:
             
             removeButtonsFromStackView()
             
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Acme", tag: 0, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Orkin", tag: 1, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Fedex", tag: 2, selector: #selector(selectedEntrantSubType)))
-//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "NW Electrical", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Acme", tag: 0, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Orkin", tag: 1, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Fedex", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "NW Electrical", tag: 2, selector: #selector(selectedEntrantSubType)))
             
         case .None:
             
@@ -244,6 +360,54 @@ class ViewController: UIViewController {
             
             textField.changeState = false
         }
+    }
+    
+    //---------------------------
+    //MARK: Text Field Delegate
+    //---------------------------
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
+    }
+    
+    //Function to set the maximum number of characters for the summoner name text field
+    func checkMaxLength(textField: UITextField!, maxLength: Int) {
+        
+        if (textField.text?.characters.count > maxLength) {
+            
+            textField.deleteBackward()
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        //Set the max length for each text field
+        if textField == dateOfBirthTextField {
+            checkMaxLength(textField, maxLength: 9)
+            
+        }else if textField == ssnTextField {
+            checkMaxLength(textField, maxLength: 10)
+            
+        }else if textField == projectNumberTextField {
+            checkMaxLength(textField, maxLength: 3)
+            
+        }else if textField == companyTextField {
+            checkMaxLength(textField, maxLength: 40)
+            
+        }else if textField == addressTextField {
+            checkMaxLength(textField, maxLength: 40)
+            
+        }else if textField == cityTextField {
+            checkMaxLength(textField, maxLength: 16)
+            
+        }else if textField == stateTextField {
+            checkMaxLength(textField, maxLength: 24)
+            
+        }else if textField == zipCodeTextField {
+            checkMaxLength(textField, maxLength: 16)
+        }
+        
+        return true
     }
     
     //-----------------------
