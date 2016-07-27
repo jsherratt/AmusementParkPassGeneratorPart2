@@ -11,11 +11,20 @@ import UIKit
 class PassViewController: UIViewController {
 
     //-----------------------
+    //MARK: Outlets
+    //-----------------------
+    @IBOutlet weak var passHole: UIView!
+    @IBOutlet weak var passBackground: UIView!
+    @IBOutlet weak var passAvatar: UIImageView!
+    @IBOutlet weak var testResultLabel: UILabel!
+    
+    //-----------------------
     //MARK: View
     //-----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        roundViewCorners()
     }
 
     //-----------------------
@@ -24,6 +33,26 @@ class PassViewController: UIViewController {
     @IBAction func createNewPass(sender: Button) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //-----------------------
+    //MARK: Functions
+    //-----------------------
+    
+    //Round the corners of the pass hole at the top, the avatar and the pass background
+    func roundViewCorners() {
+        
+        passHole.layer.cornerRadius = 6
+        passHole.layer.masksToBounds = true
+        
+        passBackground.layer.cornerRadius = 5
+        passBackground.layer.masksToBounds = true
+        
+        passAvatar.layer.cornerRadius = 7
+        passAvatar.layer.masksToBounds = true
+        
+        testResultLabel.layer.cornerRadius = 5
+        testResultLabel.layer.masksToBounds = true
     }
     
     //-----------------------
