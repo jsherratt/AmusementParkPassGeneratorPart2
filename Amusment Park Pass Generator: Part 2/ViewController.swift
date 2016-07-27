@@ -9,416 +9,241 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //-----------------------
+    //MARK: Enum
+    //-----------------------
+    enum EntrantType {
+        
+        case Guest
+        case Employee
+        case Manger
+        case Contractor
+        case Vendor
+        case None
+    }
 
     //-----------------------
     //MARK: Variables
     //-----------------------
-    var kioskControl = KioskControl()
-    var entrant: Entrant?
+    var entrantStackView: EntrantType = .None
+    var selectedEntrant: EntrantType = .None
+
+    //-----------------------
+    //MARK: Outlets
+    //-----------------------
     
+    //Stackview
+    @IBOutlet weak var entrantSubTypeStackView: UIStackView!
+    
+    //Text fields
+    @IBOutlet weak var dateOfBirthTextField: TextField!
+    @IBOutlet weak var ssnTextField: TextField!
+    @IBOutlet weak var projectNumberTextField: TextField!
+    @IBOutlet weak var firstNameTextField: TextField!
+    @IBOutlet weak var lastNameTextField: TextField!
+    @IBOutlet weak var companyTextField: TextField!
+    @IBOutlet weak var addressTextField: TextField!
+    @IBOutlet weak var cityTextField: TextField!
+    @IBOutlet weak var stateTextField: TextField!
+    @IBOutlet weak var zipCodeTextField: TextField!
+    
+    @IBOutlet var textFieldArray: [TextField]!
     //-----------------------
     //MARK: View
     //-----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //----------------------------------------------------------------------------------------------------------------------------------------------------------//
-        //Uncomment individual entrants and swipe methods below to test creating different types of entrants and swiping their passes for areas, rides and discounts//
-        //----------------------------------------------------------------------------------------------------------------------------------------------------------//
-        
-        //------------------------------------------------------//
-        //Use marks for quick access for different swipe methods//
-        //------------------------------------------------------//
-        
-        //-----------------------
-        //MARK: Entrants
-        //-----------------------
-        
-        //Classic guest
-        /*
-         do {
-         let classicGuest = try Guest(dateOfbirth: nil, guestType: .Classic)
-         entrant = classicGuest
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Classic guest - Set month and day to current days date for entrant birthday. Format is MM/dd/yy
-        /*
-         do {
-         let classicGuest = try Guest(dateOfbirth: "07/07/98", guestType: .Classic)
-         entrant = classicGuest
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //VIP guest
-        /*
-         do {
-         let vipGuest = try Guest(dateOfbirth: nil, guestType: .Classic)
-         entrant = vipGuest
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Free child
-        /*
-         do {
-         let freeChild = try Guest(dateOfbirth: "05/08/14", guestType: .FreeChild)
-         entrant = freeChild
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Food services employee
-        /*
-         do {
-         let foodServicesEmployee = try Employee(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", employeeType: .FoodServices)
-         entrant = foodServicesEmployee
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Ride services employee
-        /*
-         do {
-         let rideServicesEmployee = try Employee(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", employeeType: .RideServices)
-         entrant = rideServicesEmployee
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Maintenance employee
-        /*
-         do {
-         let maintenanceEmployee = try Employee(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", employeeType: .Maintenance)
-         entrant = maintenanceEmployee
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Senior manager
-        /*
-         do {
-         let seniorManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", managerType: .SeniorManager)
-         entrant = seniorManager
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //General manager
-        /*
-         do {
-         let generalManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", managerType: .GeneralManager)
-         entrant = generalManager
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Shift manager
-        /*
-         do {
-         let shiftManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", managerType: .ShiftManager)
-         entrant = shiftManager
-         
-         }catch {
-         print(error)
-         }
-         */
-        
-        //--------------------------------
-        //MARK: Entrants throwing errors
-        //--------------------------------
-        
-        //Free child missing date of birth
-        /*
-         do {
-         let freeChild = try Guest(dateOfbirth: nil, guestType: .FreeChild)
-         entrant = freeChild
-         
-         }catch Error.MissingDateOfBirth {
-         print("Missing date of birth")
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Food services employee missing last name
-        /*
-         do {
-         let foodServicesEmployee = try Employee(firstName: "John", lastName: nil, streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", employeeType: .FoodServices)
-         entrant = foodServicesEmployee
-         
-         }catch Error.MissingName {
-         print("Missing name")
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Shift manager missing address
-        /*
-         do {
-         let shiftManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: nil, city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", managerType: .ShiftManager)
-         entrant = shiftManager
-         
-         }catch Error.MissingAddress {
-         print("Missing address")
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Senior manager missing social security number
-        /*
-         do {
-         let seniorManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: nil, dateOfBirth: "04/02/98", managerType: .SeniorManager)
-         entrant = seniorManager
-         
-         }catch Error.MissingSocialSecurityNumber {
-         print("Missing social security number")
-         }catch {
-         print(error)
-         }
-         */
-        
-        //Manager missing type of manager
-        /*
-         do {
-         let seniorManager = try Manager(firstName: "John", lastName: "Smith", streetAddress: "123 Apple Drive", city: "Los Angeles", state: "California", zipCode: 90001, socialSecurityNumber: 264-61-2353, dateOfBirth: "04/02/98", managerType: nil)
-         entrant = seniorManager
-         
-         }catch Error.MissingType {
-         print("Missing type")
-         }catch {
-         print(error)
-         }
-         */
         
         
-        //---------------------------
-        //MARK: Swipe passes - Area
-        //---------------------------
+    }
+    
+    @IBAction func selectEntrantToPopulateStackView(sender: UIButton) {
         
-        //Create pass and check if entrant has access to an area, rides, or discounts. All swipes will also throw errors if an entrant tries to access an area, ride or discount the entrant does not have access to.
-        //For example - An error will throw if a classic guest tries to access the ride control areas or receive a 25% discount on food.
+        let buttonTitle = sender.currentTitle!
         
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forArea: .AmusementAreas)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        switch buttonTitle {
+            
+        case "Guest":
+            
+            resetTextFields()
+            selectedEntrant = .Guest
+            createEntrantSubTypeStackView(withEntant: .Guest)
+            
+        case "Employee":
+            
+            resetTextFields()
+            selectedEntrant = .Employee
+            createEntrantSubTypeStackView(withEntant: .Employee)
+            
+        case "Manager":
+            
+            createEntrantSubTypeStackView(withEntant: .Manger)
+            
+        case "Contractor":
+            
+            createEntrantSubTypeStackView(withEntant: .Contractor)
+            
+        case "Vendor":
+            
+            createEntrantSubTypeStackView(withEntant: .Vendor)
+            
+        default:
+            return
+        }
+    }
+    
+    //-----------------------
+    //MARK: Functions
+    //-----------------------
+    func selectedEntrantSubType(sender: UIButton) {
         
-        //Kitchen areas
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forArea: .KitchenAreas)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        resetTextFields()
         
-        //Ride control areas
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forArea: .RideControlAreas)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        dateOfBirthTextField.changeState = true
         
-        //Maintenance areas
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forArea: .MaintenanceAreas)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        let buttonTitle = sender.currentTitle!
         
-        //Office areas
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forArea: .OfficeAreas)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        switch selectedEntrant {
+            
+        case .Guest:
+            
+            switch buttonTitle {
+                
+            case "Child":
+                
+                return
+            
+            case "Adult":
+                
+                return
+                
+            case "Senior":
+                
+                return
+                
+            case "VIP":
+                
+                return
+                
+            case "Season Pass":
+            
+                return
+                
+            default:
+                return
+            }
+            
+        case .Employee:
+            
+            activateTextFieldsForEmployeesAndManagers()
+            
+        case .Manger:
+            
+            activateTextFieldsForEmployeesAndManagers()
+            
+            
+        default:
+            return
+        }
+    }
+    
+    func activateTextFieldsForEmployeesAndManagers() {
         
-        //---------------------------
-        //MARK: Swipe passes - Ride
-        //---------------------------
+        dateOfBirthTextField.changeState = true
+        firstNameTextField.changeState = true
+        lastNameTextField.changeState = true
+        addressTextField.changeState = true
+        cityTextField.changeState = true
+        stateTextField.changeState = true
+        zipCodeTextField.changeState = true
         
-        //All rides
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forRide: .AccessAllRides)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+    }
+    
+    func createButton(withTitle title: String, tag: Int, selector: Selector) -> UIButton {
         
-        //Skip all ride line
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forRide: .SkipAllRideLines)
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        let button = UIButton(type: .System)
         
-        //-------------------------------
-        //MARK: Swipe passes - Discount
-        //-------------------------------
+        button.tag = tag
+        button.tintColor = UIColor.whiteColor()
+        button.titleLabel?.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
+        button.setTitle(title, forState: .Normal)
+        button.addTarget(self, action: selector, forControlEvents: .TouchUpInside)
         
-        //10% discount on food
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forDiscount: .DiscountOnFood(amount: 10))
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        return button
+    }
+    
+    func createEntrantSubTypeStackView(withEntant entrant: EntrantType) {
         
-        //15% discount on food
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forDiscount: .DiscountOnFood(amount: 15))
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        switch entrant {
+            
+        case .Guest:
+            
+            removeButtonsFromStackView()
+            
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Child", tag: 0, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Adult", tag: 1, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Senior", tag: 2, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "VIP", tag: 3, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Season Pass", tag: 4, selector: #selector(selectedEntrantSubType)))
+            
+        case .Employee:
+            
+            removeButtonsFromStackView()
+            
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Food Services", tag: 0, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Ride Services", tag: 1, selector: #selector(selectedEntrantSubType)))
+            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Maintenance", tag: 2, selector: #selector(selectedEntrantSubType)))
+            
+        case .Manger:
+            
+            removeButtonsFromStackView()
+            
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Senior", tag: 0, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "General", tag: 1, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Shift", tag: 2, selector: #selector(selectedEntrantSubType)))
+            
+        case .Contractor:
+            
+            removeButtonsFromStackView()
+            
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1001", tag: 0, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1002", tag: 1, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "1003", tag: 2, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2001", tag: 2, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "2002", tag: 2, selector: #selector(selectedEntrantSubType)))
+            
+        case .Vendor:
+            
+            removeButtonsFromStackView()
+            
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Acme", tag: 0, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Orkin", tag: 1, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "Fedex", tag: 2, selector: #selector(selectedEntrantSubType)))
+//            entrantSubTypeStackView.addArrangedSubview(createButton(withTitle: "NW Electrical", tag: 2, selector: #selector(selectedEntrantSubType)))
+            
+        case .None:
+            
+            removeButtonsFromStackView()
+        }
+    }
+    
+    func removeButtonsFromStackView() {
         
-        //25% discount on food
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forDiscount: .DiscountOnFood(amount: 25))
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        for button in entrantSubTypeStackView.arrangedSubviews {
+            
+            entrantSubTypeStackView.removeArrangedSubview(button)
+            button.removeFromSuperview()
+        }
+    }
+    
+    func resetTextFields() {
         
-        //20% discount on merchandise
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forDiscount: .DiscountOnMerchandise(amount: 20))
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
-        
-        //25% discount on merchandise
-        /*
-         if var person = self.entrant {
-         
-         let pass = kioskControl.createPass(forEntrant: person)
-         person.pass = pass
-         
-         do {
-         try person.swipePass(forDiscount: .DiscountOnMerchandise(amount: 25))
-         
-         }catch {
-         print(error)
-         }
-         }
-         */
+        for textField in textFieldArray {
+            
+            textField.changeState = false
+        }
     }
     
     //-----------------------
