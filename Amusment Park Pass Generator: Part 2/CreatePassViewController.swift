@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     //-----------------------
     //MARK: Enum

@@ -59,9 +59,9 @@ class TextField: UITextField {
     //Round the corners of the text field
     override func drawRect(rect: CGRect) {
         
-        self.layer.cornerRadius = 3
+        self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        self.layer.borderWidth = 1.3
+        self.layer.borderWidth = 1.4
         self.layer.borderColor = UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1.0).CGColor
     }
 

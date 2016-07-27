@@ -10,7 +10,7 @@
 		D41C1F201D47FA5C00AEDF0E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C1F1F1D47FA5C00AEDF0E /* TextField.swift */; };
 		D41C1F241D48191200AEDF0E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C1F231D48191200AEDF0E /* Button.swift */; };
 		D4209C461D45677C009B2132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C451D45677C009B2132 /* AppDelegate.swift */; };
-		D4209C481D45677C009B2132 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C471D45677C009B2132 /* ViewController.swift */; };
+		D4209C481D45677C009B2132 /* CreatePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C471D45677C009B2132 /* CreatePassViewController.swift */; };
 		D4209C4B1D45677C009B2132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4209C491D45677C009B2132 /* Main.storyboard */; };
 		D4209C4D1D45677C009B2132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4209C4C1D45677C009B2132 /* Assets.xcassets */; };
 		D4209C501D45677C009B2132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */; };
@@ -23,6 +23,7 @@
 		D4209C651D4568A1009B2132 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C641D4568A1009B2132 /* Errors.swift */; };
 		D4209C671D4568AB009B2132 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C661D4568AB009B2132 /* Sound.swift */; };
 		D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C681D4568B3009B2132 /* DateFormatter.swift */; };
+		D48C5B871D4875220042AC80 /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C5B861D4875220042AC80 /* PassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,7 @@
 		D41C1F231D48191200AEDF0E /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D4209C421D45677C009B2132 /* Amusment Park Pass Generator: Part 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amusment Park Pass Generator: Part 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4209C451D45677C009B2132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4209C471D45677C009B2132 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4209C471D45677C009B2132 /* CreatePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePassViewController.swift; sourceTree = "<group>"; };
 		D4209C4A1D45677C009B2132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4209C4C1D45677C009B2132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4209C4F1D45677C009B2132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		D4209C641D4568A1009B2132 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D4209C661D4568AB009B2132 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		D4209C681D4568B3009B2132 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		D48C5B861D4875220042AC80 /* PassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				D4209C451D45677C009B2132 /* AppDelegate.swift */,
-				D4209C471D45677C009B2132 /* ViewController.swift */,
+				D4209C471D45677C009B2132 /* CreatePassViewController.swift */,
+				D48C5B861D4875220042AC80 /* PassViewController.swift */,
 				D4209C5D1D456844009B2132 /* ParkModels */,
 				D4209C6A1D4568B8009B2132 /* EntrantModels */,
 				D4209C661D4568AB009B2132 /* Sound.swift */,
@@ -192,11 +195,12 @@
 				D4209C611D456891009B2132 /* Employee.swift in Sources */,
 				D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */,
 				D4209C671D4568AB009B2132 /* Sound.swift in Sources */,
-				D4209C481D45677C009B2132 /* ViewController.swift in Sources */,
+				D4209C481D45677C009B2132 /* CreatePassViewController.swift in Sources */,
 				D4209C461D45677C009B2132 /* AppDelegate.swift in Sources */,
 				D4209C651D4568A1009B2132 /* Errors.swift in Sources */,
 				D41C1F241D48191200AEDF0E /* Button.swift in Sources */,
 				D4209C5A1D456837009B2132 /* KioskControl.swift in Sources */,
+				D48C5B871D4875220042AC80 /* PassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

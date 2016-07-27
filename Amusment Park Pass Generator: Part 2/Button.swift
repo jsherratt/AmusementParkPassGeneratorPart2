@@ -14,7 +14,7 @@ class Button: UIButton {
     //Round button corners
     override func drawRect(rect: CGRect) {
     
-        self.layer.cornerRadius = 3
+        self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
     }
  
