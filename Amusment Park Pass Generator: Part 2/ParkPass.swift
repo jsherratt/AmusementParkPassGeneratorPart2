@@ -30,15 +30,20 @@ protocol ParkPassType {
 //Enum for different pass types
 enum PassType: String {
     
-    case ClassicGuestPass = "Classic Guest Pass"
     case ChildGuestPass = "Child Guest Pass"
+    case AdultGuestPass = "Adult Guest Pass"
+    case SeniorGuestPass = "Senior Guest Pass"
     case VIPGuestPass = "VIP Guest Pass"
+    case SeasonGuestPass = "Season Guest Pass"
     case FoodServicePass = "Food Services Pass"
     case RideServicePass = "Ride Services Pass"
     case MaintenancePass = "Maintenance Services Pass"
     case SeniorManagerPass = "Senior Manager Pass"
     case GeneralManagerPass = "General Manager Pass"
     case ShiftManagerPass = "Shift Manager Pass"
+    case ContractorPass = "Contractor Pass"
+    case VendorPass = "Vendor Pass"
+    case None
 }
 
 //Enum for different access areas and a function to validate what areas different entrants can access
@@ -58,9 +63,9 @@ enum AreaAccess {
             
         case is Guest: access = [.AmusementAreas]
             
-        case let employee as Employee:
+        case let employee as HourlyEmployee:
             
-            switch employee.employeeType {
+            switch employee.workType {
                 
             case .FoodServices: access = [.AmusementAreas, .KitchenAreas]
                 
@@ -69,8 +74,37 @@ enum AreaAccess {
             case .Maintenance: access = [.AmusementAreas, .KitchenAreas, .RideControlAreas, .MaintenanceAreas]
                 
             }
+        case let employee as ContractEmployee:
+            
+            switch employee.projectNumber {
+                
+            case .oneThousandOne: access = [.AmusementAreas, .RideControlAreas]
+                
+            case .oneThousandTwo: access = [.AmusementAreas, .RideControlAreas, .MaintenanceAreas]
+                
+            case .oneThousandThree: access = [.AmusementAreas, .RideControlAreas, .KitchenAreas, .MaintenanceAreas, .OfficeAreas]
+                
+            case .twoThousandOne: access = [.OfficeAreas]
+                
+            case .twoThousandTwo: access = [.KitchenAreas, .MaintenanceAreas]
+                
+            }
             
         case is Manager: access = [.AmusementAreas, .KitchenAreas, .RideControlAreas, .MaintenanceAreas, .OfficeAreas]
+            
+        case let vendor as Vendor:
+            
+            switch vendor.company {
+                
+            case .Acme: access = [.KitchenAreas]
+                
+            case .Orkin: access = [.AmusementAreas, .RideControlAreas, .KitchenAreas]
+                
+            case .Fedex: access = [.MaintenanceAreas, .OfficeAreas]
+                
+            case .NWElectrical: access = [.AmusementAreas, .RideControlAreas, .KitchenAreas, .MaintenanceAreas, .OfficeAreas]
+                
+            }
             
         default: break
             
@@ -93,16 +127,41 @@ enum RideAccess {
             
         case let guest as Guest:
             
-            switch guest.guestType{
+            switch guest.guestType {
                 
-            case .Classic, .FreeChild: access = [.AccessAllRides]
-            case .VIP: access = [.AccessAllRides, .SkipAllRideLines]
+            case .Adult, .FreeChild: access = [.AccessAllRides]
+            case .Senior, .VIP, .SeasonPass: access = [.AccessAllRides, .SkipAllRideLines]
                 
             }
             
-        case is Employee: access = [.AccessAllRides]
+        case is HourlyEmployee: access = [.AccessAllRides]
+        
+        case let employee as ContractEmployee:
+            
+            switch employee.projectNumber {
+                
+            case .oneThousandOne: access = [.AccessAllRides]
+                
+            case .oneThousandTwo: access = [.AccessAllRides]
+                
+            case .oneThousandThree: access = [.AccessAllRides]
+                
+            default: break
+                
+            }
             
         case is Manager: access = [.AccessAllRides]
+            
+        case let vendor as Vendor:
+            
+            switch vendor.company {
+                
+            case .Orkin: access = [.AccessAllRides]
+            case .NWElectrical: access = [.AccessAllRides]
+                
+            default: break
+                
+            }
             
         default: break
             
@@ -127,13 +186,15 @@ enum DiscountAccess {
             
             switch guest.guestType {
                 
-            case .Classic, .FreeChild: discount = nil
+            case .Adult, .FreeChild: discount = nil
                 
-            case .VIP: discount = [.DiscountOnFood(amount: 10), .DiscountOnMerchandise(amount: 20)]
+            case .Senior: discount = [.DiscountOnFood(amount: 10), .DiscountOnMerchandise(amount: 10)]
+                
+            case .VIP, .SeasonPass: discount = [.DiscountOnFood(amount: 10), .DiscountOnMerchandise(amount: 20)]
                 
             }
             
-        case is Employee: discount = [.DiscountOnFood(amount: 15), .DiscountOnMerchandise(amount: 25)]
+        case is HourlyEmployee: discount = [.DiscountOnFood(amount: 15), .DiscountOnMerchandise(amount: 25)]
             
         case is Manager: discount = [.DiscountOnFood(amount: 25), .DiscountOnMerchandise(amount: 25)]
             
@@ -162,19 +223,27 @@ struct Pass: ParkPassType {
             
         case let guest as Guest:
             
+            self.name = nil
+            
             switch guest.guestType {
                 
-            case .Classic: self.type = PassType.ClassicGuestPass.rawValue
+            case .Adult: self.type = PassType.AdultGuestPass.rawValue
                 
             case .FreeChild: self.type = PassType.ChildGuestPass.rawValue
                 
+            case .Senior: self.type = PassType.SeniorGuestPass.rawValue
+                
             case .VIP: self.type = PassType.VIPGuestPass.rawValue
+                
+            case .SeasonPass: self.type = PassType.SeasonGuestPass.rawValue
                 
             }
             
-        case let employee as Employee:
+        case let employee as HourlyEmployee:
             
-            switch employee.employeeType {
+            self.name = "\(employee.firstName) \(employee.lastName)"
+            
+            switch employee.workType {
                 
             case .FoodServices: self.type = PassType.FoodServicePass.rawValue
                 
@@ -184,7 +253,15 @@ struct Pass: ParkPassType {
                 
             }
             
+        case let employee as ContractEmployee:
+            
+            self.name = "\(employee.firstName) \(employee.lastName)"
+            
+            self.type = PassType.ContractorPass.rawValue
+            
         case let manager as Manager:
+            
+            self.name = "\(manager.firstName) \(manager.lastName)"
             
             switch manager.managerType {
                 
@@ -195,6 +272,12 @@ struct Pass: ParkPassType {
             case .ShiftManager: self.type = PassType.ShiftManagerPass.rawValue
                 
             }
+            
+        case let vendor as Vendor:
+            
+            self.name = "\(vendor.firstName) \(vendor.lastName)"
+            
+            self.type = PassType.VendorPass.rawValue
             
         default: break
             

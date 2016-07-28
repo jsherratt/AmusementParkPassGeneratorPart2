@@ -22,8 +22,9 @@
 		D4209C631D456897009B2132 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C621D456897009B2132 /* Manager.swift */; };
 		D4209C651D4568A1009B2132 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C641D4568A1009B2132 /* Errors.swift */; };
 		D4209C671D4568AB009B2132 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C661D4568AB009B2132 /* Sound.swift */; };
-		D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4209C681D4568B3009B2132 /* DateFormatter.swift */; };
 		D48C5B871D4875220042AC80 /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48C5B861D4875220042AC80 /* PassViewController.swift */; };
+		D4A166121D496C8C0046A783 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A166111D496C8C0046A783 /* Utilities.swift */; };
+		D4A166151D4979750046A783 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A166141D4979750046A783 /* Vendor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +45,9 @@
 		D4209C621D456897009B2132 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		D4209C641D4568A1009B2132 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D4209C661D4568AB009B2132 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		D4209C681D4568B3009B2132 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D48C5B861D4875220042AC80 /* PassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewController.swift; sourceTree = "<group>"; };
+		D4A166111D496C8C0046A783 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D4A166141D4979750046A783 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +86,8 @@
 				D4209C5D1D456844009B2132 /* ParkModels */,
 				D4209C6A1D4568B8009B2132 /* EntrantModels */,
 				D4209C661D4568AB009B2132 /* Sound.swift */,
-				D4209C681D4568B3009B2132 /* DateFormatter.swift */,
-				D41C1F1F1D47FA5C00AEDF0E /* TextField.swift */,
-				D41C1F231D48191200AEDF0E /* Button.swift */,
+				D4A166111D496C8C0046A783 /* Utilities.swift */,
+				D4A166131D496CEF0046A783 /* CustomSubClasses */,
 				D4209C491D45677C009B2132 /* Main.storyboard */,
 				D4209C4C1D45677C009B2132 /* Assets.xcassets */,
 				D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */,
@@ -112,8 +113,18 @@
 				D4209C5E1D456889009B2132 /* Guest.swift */,
 				D4209C601D456891009B2132 /* Employee.swift */,
 				D4209C621D456897009B2132 /* Manager.swift */,
+				D4A166141D4979750046A783 /* Vendor.swift */,
 			);
 			name = EntrantModels;
+			sourceTree = "<group>";
+		};
+		D4A166131D496CEF0046A783 /* CustomSubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				D41C1F1F1D47FA5C00AEDF0E /* TextField.swift */,
+				D41C1F231D48191200AEDF0E /* Button.swift */,
+			);
+			name = CustomSubClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,10 +201,11 @@
 				D4209C5C1D456840009B2132 /* ParkPass.swift in Sources */,
 				D4209C581D45682A009B2132 /* Entrant.swift in Sources */,
 				D4209C5F1D456889009B2132 /* Guest.swift in Sources */,
+				D4A166121D496C8C0046A783 /* Utilities.swift in Sources */,
 				D41C1F201D47FA5C00AEDF0E /* TextField.swift in Sources */,
+				D4A166151D4979750046A783 /* Vendor.swift in Sources */,
 				D4209C631D456897009B2132 /* Manager.swift in Sources */,
 				D4209C611D456891009B2132 /* Employee.swift in Sources */,
-				D4209C691D4568B3009B2132 /* DateFormatter.swift in Sources */,
 				D4209C671D4568AB009B2132 /* Sound.swift in Sources */,
 				D4209C481D45677C009B2132 /* CreatePassViewController.swift in Sources */,
 				D4209C461D45677C009B2132 /* AppDelegate.swift in Sources */,

@@ -23,7 +23,7 @@ protocol EmployeeType: Entrant {
     var zipCode: Int { get }
     var socialSecurityNumber: Int { get }
     var dateOfBirth: NSDate { get }
-    var employeeType: HourlyEmployees { get }
+    var employeeType: Employees { get }
 }
 
 //-----------------------
@@ -31,17 +31,32 @@ protocol EmployeeType: Entrant {
 //-----------------------
 
 //Different type of hourly employees
-enum HourlyEmployees {
+enum Employees {
+    
+    case Hourly
+    case Contract
+}
+
+enum WorkType {
     
     case FoodServices
     case RideServices
     case Maintenance
 }
 
+enum ProjectNumber {
+    
+    case oneThousandOne
+    case oneThousandTwo
+    case oneThousandThree
+    case twoThousandOne
+    case twoThousandTwo
+}
+
 //-----------------------
 //MARK: Structs
 //-----------------------
-struct Employee: EmployeeType {
+struct HourlyEmployee: EmployeeType {
     
     var pass: Pass?
     
@@ -53,10 +68,11 @@ struct Employee: EmployeeType {
     var zipCode: Int
     var socialSecurityNumber: Int
     var dateOfBirth: NSDate
-    var employeeType: HourlyEmployees
+    var workType: WorkType
+    var employeeType: Employees
     
     //Init parameters are optional so they can throw errors when information is not complete
-    init(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, employeeType: HourlyEmployees?) throws {
+    init(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, workType: WorkType?) throws {
         
         guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }
         
@@ -65,8 +81,9 @@ struct Employee: EmployeeType {
         guard let ssn = socialSecurityNumber else { throw Error.MissingSocialSecurityNumber }
         
         guard let dob = dateOfBirth else { throw Error.MissingDateOfBirth }
+        guard let convertedDateOfBirth = dateFormatter.dateFromString(dob) else { throw Error.MissingDateOfBirth }
         
-        guard let employee = employeeType else { throw Error.MissingType}
+        guard let work = workType else { throw Error.MissingType}
         
         self.firstName = firstOfName
         self.lastName = lastOfName
@@ -75,7 +92,50 @@ struct Employee: EmployeeType {
         self.state = state
         self.zipCode = zipCode
         self.socialSecurityNumber = ssn
-        self.dateOfBirth = try DateFormatter.convertString(toDate: dob)
-        self.employeeType = employee
+        self.dateOfBirth = convertedDateOfBirth
+        self.workType = work
+        self.employeeType = .Hourly
+    }
+}
+
+struct ContractEmployee: EmployeeType {
+    
+    var pass: Pass?
+    
+    var firstName: String
+    var lastName: String
+    var streetAddress: String
+    var city: String
+    var state: String
+    var zipCode: Int
+    var socialSecurityNumber: Int
+    var dateOfBirth: NSDate
+    var projectNumber: ProjectNumber
+    var employeeType: Employees
+    
+    //Init parameters are optional so they can throw errors when information is not complete
+    init(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, projectNumber: ProjectNumber?) throws {
+        
+        guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }
+        
+        guard let street = streetAddress, let city = city, let state = state, let zipCode = zipCode else { throw Error.MissingAddress }
+        
+        guard let ssn = socialSecurityNumber else { throw Error.MissingSocialSecurityNumber }
+        
+        guard let dob = dateOfBirth else { throw Error.MissingDateOfBirth }
+        guard let convertedDateOfBirth = dateFormatter.dateFromString(dob) else { throw Error.MissingDateOfBirth }
+        
+        guard let project = projectNumber else { throw Error.MissingProject}
+        
+        self.firstName = firstOfName
+        self.lastName = lastOfName
+        self.streetAddress = street
+        self.city = city
+        self.state = state
+        self.zipCode = zipCode
+        self.socialSecurityNumber = ssn
+        self.dateOfBirth = convertedDateOfBirth
+        self.projectNumber = project
+        self.employeeType = .Contract
     }
 }

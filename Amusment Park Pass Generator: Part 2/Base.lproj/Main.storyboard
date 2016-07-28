@@ -252,7 +252,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8eq-ug-VVU">
                                         <rect key="frame" x="0.0" y="207" width="800" height="80"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/DD/YYYY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0C-gk-Xov" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/DD/YYYY" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A0C-gk-Xov" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -273,7 +273,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="###-##-####" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EkQ-aZ-9lu" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="###-##-####" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EkQ-aZ-9lu" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="285" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82352941180000006" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -294,7 +294,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="####" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01f-1F-C0c" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="####" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="01f-1F-C0c" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="550" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82352941180000006" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -381,7 +381,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M92-ad-isO">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-Gv-Jts" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6VX-Gv-Jts" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -402,7 +402,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ixy-Bb-eLB" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ixy-Bb-eLB" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -449,7 +449,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-Ew-5Ta" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-Ew-5Ta" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -494,7 +494,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="street address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sar-5l-iWk" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="street address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sar-5l-iWk" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -585,7 +585,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uzf-Vy-6Na">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZg-Ht-PfJ" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="city" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BZg-Ht-PfJ" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -606,7 +606,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="state" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-ba-Eeh" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="state" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-ba-Eeh" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -627,7 +627,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="zip code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cME-GJ-NUB" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="zip code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cME-GJ-NUB" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="230" height="40"/>
                                                 <color key="backgroundColor" red="0.82745098039999998" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -689,7 +689,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="VCf-fZ-v5M" kind="show" id="WEM-sU-ttX"/>
+                                            <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZG-GK-qXl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGS-dF-hoQ" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
@@ -715,6 +715,52 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zLy-vh-Avh">
+                                <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Visit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ef-u9-RZr">
+                                        <rect key="frame" x="510" y="20" width="230" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="U7j-Gy-teS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="U7j-Gy-teS"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="U7j-Gy-teS"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/DD/YYYY" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R07-9P-Bg6" customClass="TextField" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                        <rect key="frame" x="550" y="20" width="230" height="40"/>
+                                        <color key="backgroundColor" red="0.82352941180000006" green="0.80000000000000004" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="247" id="Iib-Fx-9zS"/>
+                                            <constraint firstAttribute="height" constant="40" id="bgp-BI-GOf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Iib-Fx-9zS"/>
+                                                <exclude reference="bgp-BI-GOf"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="Iib-Fx-9zS"/>
+                                                <include reference="bgp-BI-GOf"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.82352941176470584" green="0.80000000000000004" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -724,10 +770,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OBv-7F-wej" secondAttribute="trailing" id="6vF-4d-p9E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Fk-ee-DhT" secondAttribute="trailing" id="B82-kb-OXz"/>
                             <constraint firstItem="nHj-pI-TO6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bdi-e4-2g9"/>
-                            <constraint firstItem="ER5-fD-pUM" firstAttribute="top" secondItem="OBv-7F-wej" secondAttribute="bottom" constant="55" id="Ds3-HS-CgA"/>
+                            <constraint firstItem="ER5-fD-pUM" firstAttribute="top" secondItem="OBv-7F-wej" secondAttribute="bottom" constant="100" id="Ds3-HS-CgA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9Fk-ee-DhT" secondAttribute="leading" id="E1e-P6-lCd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MFR-cW-bzb" secondAttribute="trailing" id="H4L-N5-OSr"/>
-                            <constraint firstItem="tze-OS-b1r" firstAttribute="top" secondItem="bdQ-wz-f6T" secondAttribute="bottom" constant="55" id="HVB-yq-yc8"/>
+                            <constraint firstItem="tze-OS-b1r" firstAttribute="top" secondItem="bdQ-wz-f6T" secondAttribute="bottom" constant="50" id="HVB-yq-yc8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zLy-vh-Avh" secondAttribute="trailing" id="IH4-La-MTC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tze-OS-b1r" secondAttribute="trailing" id="IxR-ox-i6m"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tze-OS-b1r" secondAttribute="leading" id="Pvu-zS-O1W"/>
                             <constraint firstAttribute="leadingMargin" secondItem="OBv-7F-wej" secondAttribute="leading" id="QNA-Tq-NTC"/>
@@ -737,11 +784,12 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="nHj-pI-TO6" secondAttribute="trailing" id="TNt-cZ-i0E"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ER5-fD-pUM" secondAttribute="leading" id="U9e-v1-goT"/>
-                            <constraint firstItem="bdQ-wz-f6T" firstAttribute="top" secondItem="M92-ad-isO" secondAttribute="bottom" constant="55" id="Y0A-zr-cJn"/>
+                            <constraint firstItem="bdQ-wz-f6T" firstAttribute="top" secondItem="M92-ad-isO" secondAttribute="bottom" constant="50" id="Y0A-zr-cJn"/>
                             <constraint firstItem="nHj-pI-TO6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fui-rf-uGH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ER5-fD-pUM" secondAttribute="trailing" id="jt8-Q0-61E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wvb-Rw-Sw6" secondAttribute="trailing" constant="-20" id="kUB-8h-5oK"/>
                             <constraint firstItem="MFR-cW-bzb" firstAttribute="top" secondItem="tze-OS-b1r" secondAttribute="bottom" constant="55" id="kdv-Kw-0Tb"/>
+                            <constraint firstItem="zLy-vh-Avh" firstAttribute="top" secondItem="OBv-7F-wej" secondAttribute="bottom" constant="20" id="m9p-aS-HRY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdQ-wz-f6T" secondAttribute="trailing" id="mR4-69-i2s"/>
                             <constraint firstItem="wvb-Rw-Sw6" firstAttribute="top" secondItem="nHj-pI-TO6" secondAttribute="bottom" id="oq1-iZ-mJ6"/>
                         </constraints>
@@ -755,6 +803,7 @@
                                 <exclude reference="tze-OS-b1r"/>
                                 <exclude reference="MFR-cW-bzb"/>
                                 <exclude reference="9Fk-ee-DhT"/>
+                                <exclude reference="zLy-vh-Avh"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6Gv-NB-pS7"/>
@@ -781,6 +830,8 @@
                                 <exclude reference="HVB-yq-yc8"/>
                                 <exclude reference="IxR-ox-i6m"/>
                                 <exclude reference="Pvu-zS-O1W"/>
+                                <exclude reference="IH4-La-MTC"/>
+                                <exclude reference="m9p-aS-HRY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -793,6 +844,7 @@
                                 <include reference="tze-OS-b1r"/>
                                 <include reference="MFR-cW-bzb"/>
                                 <include reference="9Fk-ee-DhT"/>
+                                <include reference="zLy-vh-Avh"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="6Gv-NB-pS7"/>
@@ -819,6 +871,8 @@
                                 <include reference="HVB-yq-yc8"/>
                                 <include reference="IxR-ox-i6m"/>
                                 <include reference="Pvu-zS-O1W"/>
+                                <include reference="IH4-La-MTC"/>
+                                <include reference="m9p-aS-HRY"/>
                             </mask>
                         </variation>
                     </view>
@@ -827,6 +881,7 @@
                         <outlet property="cityTextField" destination="BZg-Ht-PfJ" id="nn5-KS-O1m"/>
                         <outlet property="companyTextField" destination="uYf-Ew-5Ta" id="cWf-NL-qMO"/>
                         <outlet property="dateOfBirthTextField" destination="A0C-gk-Xov" id="dDY-9u-Su2"/>
+                        <outlet property="dateOfVisitTextField" destination="R07-9P-Bg6" id="aT9-oM-8Qc"/>
                         <outlet property="entrantSubTypeStackView" destination="PuV-8W-Q95" id="7cb-Ap-D9t"/>
                         <outlet property="firstNameTextField" destination="6VX-Gv-Jts" id="chM-e4-ha6"/>
                         <outlet property="lastNameTextField" destination="Ixy-Bb-eLB" id="mAy-vj-Rtv"/>
@@ -844,6 +899,8 @@
                         <outletCollection property="textFieldArray" destination="BZg-Ht-PfJ" collectionClass="NSMutableArray" id="OeU-Ep-hNi"/>
                         <outletCollection property="textFieldArray" destination="l0V-ba-Eeh" collectionClass="NSMutableArray" id="bUp-EE-u3h"/>
                         <outletCollection property="textFieldArray" destination="cME-GJ-NUB" collectionClass="NSMutableArray" id="yMf-ku-8pE"/>
+                        <outletCollection property="textFieldArray" destination="R07-9P-Bg6" collectionClass="NSMutableArray" id="XRD-Cg-KkZ"/>
+                        <segue destination="VCf-fZ-v5M" kind="presentation" identifier="ShowPass" id="y2M-Mb-BUW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1026,16 +1083,16 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="3O4-mc-FNF"/>
+                                        <exclude reference="heN-zp-nhR"/>
+                                        <exclude reference="lpz-1s-foi"/>
                                         <exclude reference="Xjn-yU-F9l"/>
                                         <exclude reference="o39-1p-de7"/>
-                                        <exclude reference="5qW-VL-6mp"/>
-                                        <exclude reference="D7C-ME-oVI"/>
-                                        <exclude reference="PdF-gf-5ZM"/>
                                         <exclude reference="5Vx-tQ-1bV"/>
                                         <exclude reference="bdY-bP-tKJ"/>
                                         <exclude reference="ces-Ju-ce3"/>
-                                        <exclude reference="heN-zp-nhR"/>
-                                        <exclude reference="lpz-1s-foi"/>
+                                        <exclude reference="5qW-VL-6mp"/>
+                                        <exclude reference="D7C-ME-oVI"/>
+                                        <exclude reference="PdF-gf-5ZM"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -1047,16 +1104,16 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="3O4-mc-FNF"/>
+                                        <include reference="heN-zp-nhR"/>
+                                        <include reference="lpz-1s-foi"/>
                                         <include reference="Xjn-yU-F9l"/>
                                         <include reference="o39-1p-de7"/>
-                                        <include reference="5qW-VL-6mp"/>
-                                        <include reference="D7C-ME-oVI"/>
-                                        <include reference="PdF-gf-5ZM"/>
                                         <include reference="5Vx-tQ-1bV"/>
                                         <include reference="bdY-bP-tKJ"/>
                                         <include reference="ces-Ju-ce3"/>
-                                        <include reference="heN-zp-nhR"/>
-                                        <include reference="lpz-1s-foi"/>
+                                        <include reference="5qW-VL-6mp"/>
+                                        <include reference="D7C-ME-oVI"/>
+                                        <include reference="PdF-gf-5ZM"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1225,14 +1282,14 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn9-Yz-0Om">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.75125499859752276" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.74901960784313726" green="0.72549019607843135" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="sMu-ef-POC">
                                         <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1290,26 +1347,26 @@
                                 <exclude reference="Nn9-Yz-0Om"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ShT-Dw-jBk"/>
+                                <exclude reference="NbR-2r-RWt"/>
                                 <exclude reference="97k-w8-dF2"/>
                                 <exclude reference="tm2-Zc-Qr7"/>
                                 <exclude reference="zG3-nD-UMO"/>
+                                <exclude reference="I2k-D1-Mgh"/>
+                                <exclude reference="puh-k1-OdX"/>
+                                <exclude reference="roH-Ml-SBA"/>
+                                <exclude reference="Uj8-Me-BgE"/>
+                                <exclude reference="pPl-pw-dwE"/>
+                                <exclude reference="vOM-2k-dSa"/>
+                                <exclude reference="029-TJ-m49"/>
+                                <exclude reference="12O-iY-DnV"/>
+                                <exclude reference="vKJ-Uc-Pcg"/>
                                 <exclude reference="4oj-g7-n1f"/>
                                 <exclude reference="fTT-hk-yfN"/>
                                 <exclude reference="zt0-q8-h8W"/>
                                 <exclude reference="bt8-Oa-GiC"/>
                                 <exclude reference="dTf-fm-Mag"/>
                                 <exclude reference="o2j-8O-rmB"/>
-                                <exclude reference="029-TJ-m49"/>
-                                <exclude reference="12O-iY-DnV"/>
-                                <exclude reference="vKJ-Uc-Pcg"/>
-                                <exclude reference="Uj8-Me-BgE"/>
-                                <exclude reference="pPl-pw-dwE"/>
-                                <exclude reference="vOM-2k-dSa"/>
-                                <exclude reference="I2k-D1-Mgh"/>
-                                <exclude reference="puh-k1-OdX"/>
-                                <exclude reference="roH-Ml-SBA"/>
-                                <exclude reference="NbR-2r-RWt"/>
-                                <exclude reference="ShT-Dw-jBk"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -1323,26 +1380,26 @@
                                 <include reference="Nn9-Yz-0Om"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ShT-Dw-jBk"/>
+                                <include reference="NbR-2r-RWt"/>
                                 <include reference="97k-w8-dF2"/>
                                 <include reference="tm2-Zc-Qr7"/>
                                 <include reference="zG3-nD-UMO"/>
+                                <include reference="I2k-D1-Mgh"/>
+                                <include reference="puh-k1-OdX"/>
+                                <include reference="roH-Ml-SBA"/>
+                                <include reference="Uj8-Me-BgE"/>
+                                <include reference="pPl-pw-dwE"/>
+                                <include reference="vOM-2k-dSa"/>
+                                <include reference="029-TJ-m49"/>
+                                <include reference="12O-iY-DnV"/>
+                                <include reference="vKJ-Uc-Pcg"/>
                                 <include reference="4oj-g7-n1f"/>
                                 <include reference="fTT-hk-yfN"/>
                                 <include reference="zt0-q8-h8W"/>
                                 <include reference="bt8-Oa-GiC"/>
                                 <include reference="dTf-fm-Mag"/>
                                 <include reference="o2j-8O-rmB"/>
-                                <include reference="029-TJ-m49"/>
-                                <include reference="12O-iY-DnV"/>
-                                <include reference="vKJ-Uc-Pcg"/>
-                                <include reference="Uj8-Me-BgE"/>
-                                <include reference="pPl-pw-dwE"/>
-                                <include reference="vOM-2k-dSa"/>
-                                <include reference="I2k-D1-Mgh"/>
-                                <include reference="puh-k1-OdX"/>
-                                <include reference="roH-Ml-SBA"/>
-                                <include reference="NbR-2r-RWt"/>
-                                <include reference="ShT-Dw-jBk"/>
                             </mask>
                         </variation>
                     </view>

@@ -9,6 +9,11 @@
 import UIKit
 
 class PassViewController: UIViewController {
+    
+    //-----------------------
+    //MARK: Variables
+    //-----------------------
+    var guest: Entrant?
 
     //-----------------------
     //MARK: Outlets
@@ -32,6 +37,7 @@ class PassViewController: UIViewController {
     //-----------------------
     @IBAction func createNewPass(sender: Button) {
         
+        // TODO: Rest guest back to nil on dismiss
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

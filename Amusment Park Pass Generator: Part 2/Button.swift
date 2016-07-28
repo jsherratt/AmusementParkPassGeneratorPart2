@@ -10,6 +10,9 @@ import UIKit
 
 class Button: UIButton {
 
+    //-----------------------
+    //MARK: Functions
+    //-----------------------
     
     //Round button corners
     override func drawRect(rect: CGRect) {

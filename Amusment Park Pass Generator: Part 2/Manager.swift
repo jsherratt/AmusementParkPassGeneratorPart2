@@ -65,6 +65,7 @@ struct Manager: ManagerType {
         guard let ssn = socialSecurityNumber else { throw Error.MissingSocialSecurityNumber }
         
         guard let dob = dateOfBirth else { throw Error.MissingDateOfBirth }
+        guard let convertedDateOfBirth = dateFormatter.dateFromString(dob) else { throw Error.MissingDateOfBirth }
         
         guard let employee = managerType else { throw Error.MissingType}
         
@@ -75,7 +76,7 @@ struct Manager: ManagerType {
         self.state = state
         self.zipCode = zipCode
         self.socialSecurityNumber = ssn
-        self.dateOfBirth = try DateFormatter.convertString(toDate: dob)
+        self.dateOfBirth = convertedDateOfBirth
         self.managerType = employee
     }
 }

@@ -118,7 +118,14 @@ extension Entrant {
                 checkBirthday(withBirthday: birthday)
             }
             
-        case let employee as Employee:
+        case let employee as HourlyEmployee:
+            
+            if let birthday: NSDate = employee.dateOfBirth {
+                
+                checkBirthday(withBirthday: birthday)
+            }
+            
+        case let employee as ContractEmployee:
             
             if let birthday: NSDate = employee.dateOfBirth {
                 
@@ -131,6 +138,14 @@ extension Entrant {
                 
                 checkBirthday(withBirthday: birthday)
             }
+            
+        case let manager as Vendor:
+            
+            if let birthday: NSDate = manager.dateOfBirth {
+                
+                checkBirthday(withBirthday: birthday)
+            }
+            
         default: break
         }
     }

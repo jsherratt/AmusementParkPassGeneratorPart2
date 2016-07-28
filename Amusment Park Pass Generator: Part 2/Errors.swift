@@ -19,8 +19,12 @@ enum Error: ErrorType {
     case MissingAddress
     case MissingSocialSecurityNumber
     case MissingDateOfBirth
+    case ChildOlderThanFive
     case MissingType
     case MissingPass
+    case MissingCompany
+    case MissingDateOfVisit
+    case MissingProject
     case DeniedAccess
     case MissingSound
     case IncorrectDateFormat
