@@ -223,7 +223,12 @@ struct Pass: ParkPassType {
             
         case let guest as Guest:
             
-            self.name = nil
+            if let firstName = guest.firstName, let lastName = guest.lastName {
+                
+                self.name = "\(firstName) \(lastName)"
+            }else {
+                self.name = nil
+            }
             
             switch guest.guestType {
                 

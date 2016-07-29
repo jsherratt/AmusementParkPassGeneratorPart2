@@ -43,8 +43,8 @@ struct Guest: GuestType {
     
     var guestType: Guests
     var dateOfBirth: NSDate?
-    var firstName: String? = nil
-    var lastName: String? = nil
+    var firstName: String?
+    var lastName: String?
     var streetAddress: String? = nil
     var city: String? = nil
     var state: String? = nil

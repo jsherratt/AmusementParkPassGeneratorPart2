@@ -21,6 +21,13 @@ class PassViewController: UIViewController {
     @IBOutlet weak var passHole: UIView!
     @IBOutlet weak var passBackground: UIView!
     @IBOutlet weak var passAvatar: UIImageView!
+    
+    //Labels
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var passTypeLabel: UILabel!
+    @IBOutlet weak var rideAcessLabel: UILabel!
+    @IBOutlet weak var foodDiscountLabel: UILabel!
+    @IBOutlet weak var merchDiscountLabel: UILabel!
     @IBOutlet weak var testResultLabel: UILabel!
     
     //-----------------------
@@ -29,7 +36,73 @@ class PassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //
         roundViewCorners()
+        
+        //
+        if let name = guest?.pass?.name {
+            
+            print(guest?.pass!.name!)
+            print(name)
+            
+            nameLabel.text = name
+            
+        }else {
+            nameLabel.text = ""
+        }
+        
+        if let passType = guest?.pass?.type {
+            
+            passTypeLabel.text = passType
+            
+        }else {
+            passTypeLabel.text = ""
+        }
+       
+        if let rideAccess = guest?.pass?.rideAccess {
+            
+            if rideAccess.isEmpty {
+                
+                rideAcessLabel.text = ""
+            }else {
+                
+                for access in rideAccess {
+                    
+                    switch access {
+                        
+                    case .AccessAllRides:
+                        
+                        rideAcessLabel.text = "Unlimted Rides"
+                    
+                    case .SkipAllRideLines:
+                        
+                        rideAcessLabel.text = "Unlimted Rides and Skip All Ride Lines"
+                    }
+                }
+            }
+        }
+        
+        if let discountAccessess = guest?.pass?.discountAccess {
+            for access in discountAccessess {
+                switch access {
+                case .DiscountOnFood(let discount):
+                    if discount != 0 {
+                        foodDiscountLabel.text = "\(discount)% discount on Food"
+                    } else {
+                        foodDiscountLabel.text = "0% discount on Food"
+                    }
+                case .DiscountOnMerchandise(let discount):
+                    if discount != 0 {
+                        merchDiscountLabel.text = "\(discount)% on Merchandise"
+                    } else {
+                        merchDiscountLabel.text = "0% discount on Merchandise"
+                    }
+                }
+            }
+        } else {
+            foodDiscountLabel.text = "0% discount on Food"
+            merchDiscountLabel.text = "0% discount on Merchandise"
+        }
     }
 
     //-----------------------

@@ -1404,9 +1404,14 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="foodDiscountLabel" destination="N1i-Yz-XlT" id="eu7-cr-MzU"/>
+                        <outlet property="merchDiscountLabel" destination="Kbj-IZ-ofW" id="sFd-r3-w21"/>
+                        <outlet property="nameLabel" destination="K9M-ak-4BM" id="rEb-1o-hs5"/>
                         <outlet property="passAvatar" destination="TTp-j3-EOY" id="ocA-9R-odf"/>
                         <outlet property="passBackground" destination="glA-IA-4CS" id="fgC-oD-ZK1"/>
                         <outlet property="passHole" destination="GoQ-ay-owf" id="qF5-Pk-9b1"/>
+                        <outlet property="passTypeLabel" destination="btE-ri-gwz" id="fAm-zd-nU4"/>
+                        <outlet property="rideAcessLabel" destination="aWQ-b2-Px9" id="pe9-xH-xJ4"/>
                         <outlet property="testResultLabel" destination="Nn9-Yz-0Om" id="YIa-La-eli"/>
                     </connections>
                 </viewController>

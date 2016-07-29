@@ -211,25 +211,32 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             }
             
         case .FoodServicePass:
-            return
+            
+            createHourlyEmployeeGuest(withWorkType: .FoodServices)
             
         case .RideServicePass:
-            return
+            
+            createHourlyEmployeeGuest(withWorkType: .RideServices)
             
         case .MaintenancePass:
-            return
+            
+            createHourlyEmployeeGuest(withWorkType: .Maintenance)
             
         case .SeniorManagerPass:
-            return
+            
+            createManagerGuest(withManagerType: .SeniorManager)
             
         case .GeneralManagerPass:
-            return
+            
+            createManagerGuest(withManagerType: .GeneralManager)
             
         case .ShiftManagerPass:
-            return
+            
+            createManagerGuest(withManagerType: .ShiftManager)
             
         case .ContractorPass:
             return
+            //createContractEmployeeGuest(withProjectNumber: nil)
             
         case .VendorPass:
             return
@@ -239,10 +246,11 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             displayAlert("Error", message: "You must select and entrant")
         }
         
-        if var guest = guest {
+        if var entrant = guest {
             
-            let pass = kioskControl.createPass(forEntrant: guest)
-            guest.pass = pass
+            let pass = kioskControl.createPass(forEntrant: entrant)
+            entrant.pass = pass
+            guest = entrant
             
             performSegueWithIdentifier("ShowPass", sender: self)
         }
@@ -396,6 +404,115 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         firstNameTextField.changeState = true
         lastNameTextField.changeState = true
         companyTextField.changeState = true
+    }
+    
+    
+    func createHourlyEmployeeGuest(withWorkType workType: WorkType) {
+        
+        do {
+            let hourlyEmployeeGuest = try HourlyEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, workType: workType)
+            guest = hourlyEmployeeGuest
+            
+        }catch Error.MissingDateOfBirth {
+            
+            displayAlert("Error", message: "You must enter a date of birth")
+            
+        }catch Error.MissingSocialSecurityNumber {
+            
+            displayAlert("Error", message: "You must enter a social security number")
+            
+        }catch Error.MissingName {
+            
+            displayAlert("Error", message: "You must enter a first and a last name")
+            
+        }catch Error.MissingAddress {
+            
+            displayAlert("Error", message: "You must enter an address, city, state and zip code")
+            
+        }catch let error {
+            print(error)
+        }
+    }
+    
+    func createContractEmployeeGuest(withProjectNumber projectNumber: ProjectNumber) {
+        
+        do {
+            let contractEmployeeGuest = try ContractEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, projectNumber: projectNumber)
+            guest = contractEmployeeGuest
+            
+        }catch Error.MissingDateOfBirth {
+            
+            displayAlert("Error", message: "You must enter a date of birth")
+            
+        }catch Error.MissingSocialSecurityNumber {
+            
+            displayAlert("Error", message: "You must enter a social security number")
+            
+        }catch Error.MissingName {
+            
+            displayAlert("Error", message: "You must enter a first and a last name")
+            
+        }catch Error.MissingAddress {
+            
+            displayAlert("Error", message: "You must enter an address, city, state and zip code")
+            
+        }catch let error {
+            print(error)
+        }
+    }
+    
+    func createManagerGuest(withManagerType manager: Managers) {
+        
+        do {
+            let managerGuest = try Manager(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, managerType: manager)
+            guest = managerGuest
+            
+        }catch Error.MissingDateOfBirth {
+            
+            displayAlert("Error", message: "You must enter a date of birth")
+            
+        }catch Error.MissingSocialSecurityNumber {
+            
+            displayAlert("Error", message: "You must enter a social security number")
+            
+        }catch Error.MissingName {
+            
+            displayAlert("Error", message: "You must enter a first and a last name")
+            
+        }catch Error.MissingAddress {
+            
+            displayAlert("Error", message: "You must enter an address, city, state and zip code")
+            
+        }catch let error {
+            print(error)
+        }
+    }
+    
+    func createVendorGuest(withCompany company: Company) {
+        
+        do {
+            let vendorGuest = try Vendor(firstName: firstNameTextField.text, lastName: lastNameTextField.text, company: company, dateOfBirth: dateOfBirthTextField.text, dateOfVisit: dateOfVisitTextField.text)
+            guest = vendorGuest
+            
+        }catch Error.MissingDateOfBirth {
+            
+            displayAlert("Error", message: "You must enter a date of birth")
+            
+        }catch Error.MissingSocialSecurityNumber {
+            
+            displayAlert("Error", message: "You must enter a social security number")
+            
+        }catch Error.MissingName {
+            
+            displayAlert("Error", message: "You must enter a first and a last name")
+            
+        }catch Error.MissingAddress {
+            
+            displayAlert("Error", message: "You must enter an address, city, state and zip code")
+            
+        }catch let error {
+            print(error)
+        }
     }
     
     func createButton(withTitle title: String, tag: Int, selector: Selector) -> UIButton {
