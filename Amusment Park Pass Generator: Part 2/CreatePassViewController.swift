@@ -74,6 +74,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    //Reset everything on return to the view. Eg when the user presses create new pass in the pass view controller
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
@@ -311,17 +312,23 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-        case .Employee:
-            return
+        case .Employee, .Manger, .Contractor:
             
-        case .Manger:
-            return
-            
-        case .Contractor:
-            return
+            dateOfBirthTextField.text = "05/15/1995"
+            ssnTextField.text = "324-58-7532"
+            firstNameTextField.text = "John"
+            lastNameTextField.text = "Appleseed"
+            addressTextField.text = "1 Infinte Loop"
+            cityTextField.text = "Cupertino"
+            stateTextField.text = "CA"
+            zipCodeTextField.text = "95014"
             
         case .Vendor:
-            return
+            
+            dateOfBirthTextField.text = "05/15/1995"
+            dateOfVisitTextField.text = "08/10/2016"
+            firstNameTextField.text = "John"
+            lastNameTextField.text = "Appleseed"
             
         case .None:
             
@@ -525,7 +532,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     func createHourlyEmployeeGuest(withWorkType workType: WorkType) {
         
         do {
-            let hourlyEmployeeGuest = try HourlyEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, workType: workType)
+            let hourlyEmployeeGuest = try HourlyEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!.stringByReplacingOccurrencesOfString("-", withString: "")), dateOfBirth: dateOfBirthTextField.text, workType: workType)
             guest = hourlyEmployeeGuest
             
         }catch Error.MissingDateOfBirth {
@@ -552,7 +559,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     func createContractEmployeeGuest(withProjectNumber projectNumber: ProjectNumber) {
         
         do {
-            let contractEmployeeGuest = try ContractEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, projectNumber: projectNumber)
+            let contractEmployeeGuest = try ContractEmployee(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!.stringByReplacingOccurrencesOfString("-", withString: "")), dateOfBirth: dateOfBirthTextField.text, projectNumber: projectNumber)
             guest = contractEmployeeGuest
             
         }catch Error.MissingDateOfBirth {
@@ -579,7 +586,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     func createManagerGuest(withManagerType manager: Managers) {
         
         do {
-            let managerGuest = try Manager(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!), dateOfBirth: dateOfBirthTextField.text, managerType: manager)
+            let managerGuest = try Manager(firstName: firstNameTextField.text, lastName: lastNameTextField.text, streetAddress: addressTextField.text, city: cityTextField.text, state: stateTextField.text, zipCode: Int(zipCodeTextField.text!), socialSecurityNumber: Int(ssnTextField.text!.stringByReplacingOccurrencesOfString("-", withString: "")), dateOfBirth: dateOfBirthTextField.text, managerType: manager)
             guest = managerGuest
             
         }catch Error.MissingDateOfBirth {
@@ -747,46 +754,6 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     //As the user is active in the text field
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
-        //Set the max length for each text field
-        let setMaxLength = (textField.text?.characters.count)! + string.characters.count - range.length
-        
-        if textField == dateOfBirthTextField {
-            return setMaxLength <= 10
-        
-        }else if textField == ssnTextField {
-            return setMaxLength <= 11
-        
-        }else if textField == projectNumberTextField {
-            return setMaxLength <= 4
-        
-        }else if textField == dateOfVisitTextField {
-            return setMaxLength <= 10
-        
-        }else if textField == firstNameTextField {
-            
-            return setMaxLength <= 16
-            
-        }else if textField == lastNameTextField {
-            
-            return setMaxLength <= 16
-            
-        }else if textField == companyTextField {
-            return setMaxLength <= 16
-        
-        }else if textField == addressTextField {
-            return setMaxLength <= 48
-            
-        }else if textField == cityTextField {
-            return setMaxLength <= 20
-        
-        }else if textField == stateTextField {
-            return setMaxLength <= 2
-        
-        }else if textField ==  zipCodeTextField {
-            return setMaxLength <= 5
-        
-        }
         
         //Only allow number input to text fields that require numbers only
         if textField == dateOfBirthTextField || textField == ssnTextField || textField == projectNumberTextField || textField == dateOfVisitTextField || textField == zipCodeTextField {
