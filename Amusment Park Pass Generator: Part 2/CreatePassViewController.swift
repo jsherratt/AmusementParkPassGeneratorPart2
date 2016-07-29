@@ -31,6 +31,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     var entrantStackView: EntrantType = .None
     var selectedEntrant: EntrantType = .None
     var selectedEntrantSubtype: PassType = .None
+    var selectedContractProjectNumber: ProjectNumber?
+    var selectedVendorCompany: Company?
 
     //-----------------------
     //MARK: Outlets
@@ -56,7 +58,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var textFieldArray: [TextField]!
     
     //-----------------------
-    //MARK: View
+    //MARK: Views
     //-----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +72,19 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         //Add tap gesture recognizer to dismiss the keyboard when the user taps outside of the text field
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGestureRecognizer)
-        
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        guest = nil
+        selectedEntrant = .None
+        selectedEntrantSubtype = .None
+        selectedContractProjectNumber = nil
+        selectedVendorCompany = nil
+        resetTextFields()
+        removeButtonsFromStackView()
+    }
     
     //-----------------------
     //MARK: Button Actions
@@ -235,15 +247,22 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             createManagerGuest(withManagerType: .ShiftManager)
             
         case .ContractorPass:
-            return
-            //createContractEmployeeGuest(withProjectNumber: nil)
+            
+            if let projectNumber = selectedContractProjectNumber {
+                
+                createContractEmployeeGuest(withProjectNumber: projectNumber)
+            }
             
         case .VendorPass:
-            return
+            
+            if let vendorCompany = selectedVendorCompany {
+                
+                createVendorGuest(withCompany: vendorCompany)
+            }
             
         case .None:
             
-            displayAlert("Error", message: "You must select and entrant")
+            displayAlert("Error", message: "You must select an entrant")
         }
         
         if var entrant = guest {
@@ -253,6 +272,60 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             guest = entrant
             
             performSegueWithIdentifier("ShowPass", sender: self)
+        }
+    }
+    
+    @IBAction func populateData(sender: UIButton) {
+        
+        switch selectedEntrant {
+            
+        case .Guest:
+            
+            switch selectedEntrantSubtype {
+                
+            case .ChildGuestPass:
+                
+                dateOfBirthTextField.text = "05/15/2014"
+                
+            case .AdultGuestPass, .VIPGuestPass:
+                
+                dateOfBirthTextField.text = "05/15/1995"
+                
+            case .SeniorGuestPass:
+                
+                dateOfBirthTextField.text = "05/15/1985"
+                firstNameTextField.text = "John"
+                lastNameTextField.text = "Appleseed"
+                
+            case .SeasonGuestPass:
+                
+                dateOfBirthTextField.text = "05/15/1995"
+                firstNameTextField.text = "John"
+                lastNameTextField.text = "Appleseed"
+                addressTextField.text = "1 Infinte Loop"
+                cityTextField.text = "Cupertino"
+                stateTextField.text = "CA"
+                zipCodeTextField.text = "95014"
+                
+            default:
+                return
+            }
+            
+        case .Employee:
+            return
+            
+        case .Manger:
+            return
+            
+        case .Contractor:
+            return
+            
+        case .Vendor:
+            return
+            
+        case .None:
+            
+            displayAlert("Error", message: "You must select an entrant")
         }
     }
     
@@ -350,10 +423,49 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             selectedEntrantSubtype = .ContractorPass
             activateTextFieldsForContractors()
             
+            switch buttonTitle {
+                
+            case "1001":
+                selectedContractProjectNumber = .oneThousandOne
+                projectNumberTextField.text = "1001"
+            case "1002":
+                selectedContractProjectNumber = .oneThousandTwo
+                projectNumberTextField.text = "1002"
+            case "1003":
+                selectedContractProjectNumber = .oneThousandThree
+                projectNumberTextField.text = "1003"
+            case "2001":
+                selectedContractProjectNumber = .twoThousandOne
+                projectNumberTextField.text = "2001"
+            case "2002":
+                selectedContractProjectNumber = .twoThousandTwo
+                projectNumberTextField.text = "2002"
+            default:
+                return
+            }
+            
         case .Vendor:
             
             selectedEntrantSubtype = .VendorPass
             activateTextFieldsForVendors()
+            
+            switch buttonTitle {
+                
+            case "Acme":
+                selectedVendorCompany = .Acme
+                companyTextField.text = "Acme"
+            case "Orkin":
+                selectedVendorCompany = .Orkin
+                companyTextField.text = "Orkin"
+            case "Fedex":
+                selectedVendorCompany = .Fedex
+                companyTextField.text = "Fedex"
+            case "NW Electrical":
+                selectedVendorCompany = .NWElectrical
+                companyTextField.text = "NW Electrical"
+            default:
+                return
+            }
             
         default:
             return
@@ -389,7 +501,9 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     func activateTextFieldsForContractors() {
         
+        ssnTextField.changeState = true
         projectNumberTextField.changeState = true
+        projectNumberTextField.enabled = false
         firstNameTextField.changeState = true
         lastNameTextField.changeState = true
         addressTextField.changeState = true
@@ -404,6 +518,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         firstNameTextField.changeState = true
         lastNameTextField.changeState = true
         companyTextField.changeState = true
+        companyTextField.enabled = false
     }
     
     
@@ -596,9 +711,13 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     //Reset all text fields
     func resetTextFields() {
         
+        selectedContractProjectNumber = nil
+        selectedVendorCompany = nil
+        
         for textField in textFieldArray {
             
             textField.changeState = false
+            textField.text = nil
         }
     }
     
@@ -619,35 +738,55 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     //---------------------------
     //MARK: Text Field Delegate
     //---------------------------
+    
+    //Dismiss the keyboard
     func dismissKeyboard() {
         
         view.endEditing(true)
     }
     
-    //Function to set the maximum number of characters for the summoner name text field
-    func checkMaxLength(textField: UITextField!, maxLength: Int) {
-        
-        if (textField.text?.characters.count > maxLength) {
-            
-            textField.deleteBackward()
-        }
-    }
-
-    
+    //As the user is active in the text field
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         //Set the max length for each text field
-        checkMaxLength(dateOfBirthTextField, maxLength: 9)
-        checkMaxLength(ssnTextField, maxLength: 10)
-        checkMaxLength(projectNumberTextField, maxLength: 3)
-        checkMaxLength(dateOfVisitTextField, maxLength: 9)
-        checkMaxLength(firstNameTextField, maxLength: 16)
-        checkMaxLength(lastNameTextField, maxLength: 16)
-        checkMaxLength(companyTextField, maxLength: 40)
-        checkMaxLength(addressTextField, maxLength: 40)
-        checkMaxLength(cityTextField, maxLength: 24)
-        checkMaxLength(stateTextField, maxLength: 16)
-        checkMaxLength(zipCodeTextField, maxLength: 10)
+        let setMaxLength = (textField.text?.characters.count)! + string.characters.count - range.length
+        
+        if textField == dateOfBirthTextField {
+            return setMaxLength <= 10
+        
+        }else if textField == ssnTextField {
+            return setMaxLength <= 11
+        
+        }else if textField == projectNumberTextField {
+            return setMaxLength <= 4
+        
+        }else if textField == dateOfVisitTextField {
+            return setMaxLength <= 10
+        
+        }else if textField == firstNameTextField {
+            
+            return setMaxLength <= 16
+            
+        }else if textField == lastNameTextField {
+            
+            return setMaxLength <= 16
+            
+        }else if textField == companyTextField {
+            return setMaxLength <= 16
+        
+        }else if textField == addressTextField {
+            return setMaxLength <= 48
+            
+        }else if textField == cityTextField {
+            return setMaxLength <= 20
+        
+        }else if textField == stateTextField {
+            return setMaxLength <= 2
+        
+        }else if textField ==  zipCodeTextField {
+            return setMaxLength <= 5
+        
+        }
         
         //Only allow number input to text fields that require numbers only
         if textField == dateOfBirthTextField || textField == ssnTextField || textField == projectNumberTextField || textField == dateOfVisitTextField || textField == zipCodeTextField {
@@ -664,7 +803,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         //Only allow character input in text fields that require characters only
         if textField == firstNameTextField || textField == lastNameTextField || textField == companyTextField || textField == cityTextField || textField == stateTextField {
             
-            let charactersOnly = NSCharacterSet.init(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            let charactersOnly = NSCharacterSet.init(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
             
             let stringFromTextField = NSCharacterSet.init(charactersInString: string)
             

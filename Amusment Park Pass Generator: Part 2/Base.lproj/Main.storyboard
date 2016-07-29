@@ -712,6 +712,9 @@
                                                 <include reference="HEw-MM-Bu4"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="populateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H8m-Qr-iP0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

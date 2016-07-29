@@ -42,9 +42,6 @@ class PassViewController: UIViewController {
         //
         if let name = guest?.pass?.name {
             
-            print(guest?.pass!.name!)
-            print(name)
-            
             nameLabel.text = name
             
         }else {
@@ -63,7 +60,7 @@ class PassViewController: UIViewController {
             
             if rideAccess.isEmpty {
                 
-                rideAcessLabel.text = ""
+                rideAcessLabel.text = "No Ride Access"
             }else {
                 
                 for access in rideAccess {
