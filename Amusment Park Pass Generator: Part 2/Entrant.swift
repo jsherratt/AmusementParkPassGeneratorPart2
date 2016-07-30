@@ -16,9 +16,9 @@ import Foundation
 protocol Entrant {
     
     var pass: Pass? { get set }
-    func swipePass(forArea area: AreaAccess) throws
-    func swipePass(forRide ride: RideAccess) throws
-    func swipePass(forDiscount discount: DiscountAccess) throws
+    func swipePass(forArea area: AreaAccess) throws -> Bool
+    func swipePass(forRide ride: RideAccess) throws -> Bool
+    func swipePass(forDiscount discount: DiscountAccess) throws -> Bool
 }
 
 //-----------------------
@@ -28,7 +28,7 @@ protocol Entrant {
 //Extend the entrant protocol to create default implementation for swipe methods
 extension Entrant {
     
-    func swipePass(forArea area: AreaAccess) throws {
+    func swipePass(forArea area: AreaAccess) throws -> Bool {
         
         //Check if a pass was created for the entrant. If not then throw missing pass error
         guard let pass = pass else { throw Error.MissingPass }
@@ -44,15 +44,18 @@ extension Entrant {
             sound.playSound(withSound: .AccessGranted)
             checkForGuestBirthday()
             
+            return true
+            
         }else {
             
             print("You have been DENIED access to: \(area)")
             sound.playSound(withSound: .AccessDenied)
-            throw Error.DeniedAccess
+            
+            return false
         }
     }
     
-    func swipePass(forRide ride: RideAccess) throws {
+    func swipePass(forRide ride: RideAccess) throws -> Bool {
         
         guard let pass = pass else { throw Error.MissingPass }
         
@@ -65,15 +68,18 @@ extension Entrant {
             sound.playSound(withSound: .AccessGranted)
             checkForGuestBirthday()
             
+            return true
+            
         }else {
             
             print("You have been DENIED access to: \(ride)")
             sound.playSound(withSound: .AccessDenied)
-            throw Error.DeniedAccess
+            
+            return false
         }
     }
     
-    func swipePass(forDiscount discount: DiscountAccess) throws {
+    func swipePass(forDiscount discount: DiscountAccess) throws -> Bool {
         
         guard let pass = pass else { throw Error.MissingPass }
         
@@ -86,11 +92,14 @@ extension Entrant {
             sound.playSound(withSound: .AccessGranted)
             checkForGuestBirthday()
             
+            return true
+            
         }else {
             
             print("You have been DENIED access to: \(discount)%")
             sound.playSound(withSound: .AccessDenied)
-            throw Error.DeniedAccess
+            
+            return false
         }
     }
     

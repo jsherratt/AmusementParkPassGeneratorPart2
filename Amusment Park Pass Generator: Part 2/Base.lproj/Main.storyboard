@@ -1228,21 +1228,101 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="22f-ND-I2i">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLL-Gf-lVw" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <state key="normal" title="Kitchen">
-                                            <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0J-qp-tyw" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Bkz-wv-Oqi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="Amusement">
+                                            <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Bkz-wv-Oqi"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="Bkz-wv-Oqi"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="testRideControlAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="pie-Y0-W22"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aee-b6-4iD" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Vj3-Pz-yq6"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Ride Control">
                                             <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Vj3-Pz-yq6"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="Vj3-Pz-yq6"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="testRideControlAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="aJc-1s-5IU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLL-Gf-lVw" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Pex-sb-MeO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="Kitchen">
+                                            <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Pex-sb-MeO"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="Pex-sb-MeO"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="testKitchenAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="mtF-jn-aax"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-VH-J7U" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Fyi-ts-NyB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="Maintenance">
+                                            <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Fyi-ts-NyB"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="Fyi-ts-NyB"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="testMaintenanceAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="Tro-4a-VmY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoQ-He-Tyd" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1264,14 +1344,9 @@
                                                 <include reference="Opa-lO-LDk"/>
                                             </mask>
                                         </variation>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-VH-J7U" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <state key="normal" title="Maintenance">
-                                            <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <connections>
+                                            <action selector="testOfficeAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="YfA-uY-aje"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1298,6 +1373,9 @@
                                                 <include reference="ake-Sw-jwN"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="testRideAccess:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="pMc-8E-pcz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyU-WI-z2g" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1306,6 +1384,9 @@
                                         <state key="normal" title="Line Skip">
                                             <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="testLineSkip:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="oe6-6s-xbq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qF-OZ-BMT" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1314,6 +1395,9 @@
                                         <state key="normal" title="Food Discount">
                                             <color key="titleColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="testFoodDiscount:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="bVJ-Am-XeJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-RE-XNV" customClass="Button" customModule="Amusment_Park_Pass_Generator__Part_2" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1335,6 +1419,9 @@
                                                 <include reference="0f6-j9-wlI"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="testMerchDiscount:" destination="VCf-fZ-v5M" eventType="touchUpInside" id="DoR-RY-S3N"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
