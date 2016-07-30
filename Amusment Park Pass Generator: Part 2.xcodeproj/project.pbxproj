@@ -61,6 +61,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D401F0831D4D647000116262 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */,
+				D4209C511D45677C009B2132 /* Info.plist */,
+			);
+			name = Extra;
+			sourceTree = "<group>";
+		};
+		D401F0841D4D648D00116262 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4209C471D45677C009B2132 /* CreatePassViewController.swift */,
+				D48C5B861D4875220042AC80 /* PassViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D4209C391D45677C009B2132 = {
 			isa = PBXGroup;
 			children = (
@@ -81,17 +99,13 @@
 			isa = PBXGroup;
 			children = (
 				D4209C451D45677C009B2132 /* AppDelegate.swift */,
-				D4209C471D45677C009B2132 /* CreatePassViewController.swift */,
-				D48C5B861D4875220042AC80 /* PassViewController.swift */,
+				D401F0841D4D648D00116262 /* ViewControllers */,
 				D4209C5D1D456844009B2132 /* ParkModels */,
 				D4209C6A1D4568B8009B2132 /* EntrantModels */,
-				D4209C661D4568AB009B2132 /* Sound.swift */,
-				D4A166111D496C8C0046A783 /* Utilities.swift */,
-				D4A166131D496CEF0046A783 /* CustomSubClasses */,
+				D4A166131D496CEF0046A783 /* Custom */,
 				D4209C491D45677C009B2132 /* Main.storyboard */,
 				D4209C4C1D45677C009B2132 /* Assets.xcassets */,
-				D4209C4E1D45677C009B2132 /* LaunchScreen.storyboard */,
-				D4209C511D45677C009B2132 /* Info.plist */,
+				D401F0831D4D647000116262 /* Extra */,
 			);
 			path = "Amusment Park Pass Generator: Part 2";
 			sourceTree = "<group>";
@@ -118,13 +132,15 @@
 			name = EntrantModels;
 			sourceTree = "<group>";
 		};
-		D4A166131D496CEF0046A783 /* CustomSubClasses */ = {
+		D4A166131D496CEF0046A783 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				D4209C661D4568AB009B2132 /* Sound.swift */,
+				D4A166111D496C8C0046A783 /* Utilities.swift */,
 				D41C1F1F1D47FA5C00AEDF0E /* TextField.swift */,
 				D41C1F231D48191200AEDF0E /* Button.swift */,
 			);
-			name = CustomSubClasses;
+			name = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

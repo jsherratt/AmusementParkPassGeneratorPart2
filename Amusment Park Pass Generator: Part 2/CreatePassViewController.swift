@@ -74,7 +74,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    //Reset everything on return to the view. Eg when the user presses create new pass in the pass view controller
+    //Reset everything on return to the view. For example when the user presses create new pass in the pass view controller
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
@@ -133,6 +133,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Generate a pass from the selected entrant subtype
     @IBAction func generatePass(sender: UIButton) {
         
         switch selectedEntrantSubtype {
@@ -157,17 +158,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             
         case .AdultGuestPass:
             
-            do {
-                let adultGuest = try Guest(dateOfbirth: dateOfBirthTextField.text!, guestType: .Adult)
-                guest = adultGuest
-                
-            }catch Error.MissingDateOfBirth {
-                
-                displayAlert("Error", message: "You must enter a date of birth")
-                
-            }catch let error {
-                print(error)
-            }
+            createGuest(withGuestType: .Adult)
             
         case .SeniorGuestPass:
             
@@ -189,17 +180,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             
         case .VIPGuestPass:
             
-            do {
-                let vipGuest = try Guest(dateOfbirth: dateOfBirthTextField.text!, guestType: .VIP)
-                guest = vipGuest
-                
-            }catch Error.MissingDateOfBirth {
-                
-                displayAlert("Error", message: "You must enter a date of birth")
-                
-            }catch let error {
-                print(error)
-            }
+            createGuest(withGuestType: .VIP)
             
         case .SeasonGuestPass:
             
@@ -260,12 +241,14 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
                 
                 createVendorGuest(withCompany: vendorCompany)
             }
-            
+        
+        //If no entrant subtype has been selected alert the user to select one
         case .None:
             
             displayAlert("Error", message: "You must select an entrant")
         }
         
+        //Check if a guest exists. If so create a pass for the guest and segue to the pass view controller
         if var entrant = guest {
             
             let pass = kioskControl.createPass(forEntrant: entrant)
@@ -276,6 +259,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Populate text fields with data based on the selected entrant
     @IBAction func populateData(sender: UIButton) {
         
         switch selectedEntrant {
@@ -339,6 +323,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     //-----------------------
     //MARK: Functions
     //-----------------------
+    
+    //Set the selected entrant subtype and activate the text fields required based on the selected entrant subtype.
     func selectedEntrantSubType(sender: UIButton) {
         
         resetTextFields()
@@ -479,6 +465,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     func activateTextFieldsForSeasonPassGuests() {
         
         firstNameTextField.changeState = true
@@ -528,7 +515,27 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         companyTextField.enabled = false
     }
     
+    //------------------------------
+    //MARK: Create Guest Functions
+    //------------------------------
     
+    //Create a basic guest
+    func createGuest(withGuestType type: Guests) {
+        
+        do {
+            let basicGuest = try Guest(dateOfbirth: dateOfBirthTextField.text!, guestType: type)
+            guest = basicGuest
+            
+        }catch Error.MissingDateOfBirth {
+            
+            displayAlert("Error", message: "You must enter a date of birth")
+            
+        }catch let error {
+            print(error)
+        }
+    }
+    
+    //Create an employee guest
     func createHourlyEmployeeGuest(withWorkType workType: WorkType) {
         
         do {
@@ -556,6 +563,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Create a contract employee guest
     func createContractEmployeeGuest(withProjectNumber projectNumber: ProjectNumber) {
         
         do {
@@ -583,6 +591,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Create a manager guest
     func createManagerGuest(withManagerType manager: Managers) {
         
         do {
@@ -610,6 +619,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Create a vendor guest
     func createVendorGuest(withCompany company: Company) {
         
         do {
@@ -637,6 +647,11 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //---------------------------
+    //MARK: StackView Functions
+    //---------------------------
+    
+    //Function that create a button. Used for the stack view
     func createButton(withTitle title: String, tag: Int, selector: Selector) -> UIButton {
         
         let button = UIButton(type: .System)
@@ -650,6 +665,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         return button
     }
     
+    //Creates and adds buttons to the entrant subtype stack view. When a new entrant is selected, the previous buttons are removed and new ones are created.
     func createEntrantSubTypeStackView(withEntant entrant: EntrantType) {
         
         switch entrant {
@@ -705,7 +721,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //Remove current buttons from stack view
+    //Function to remove current buttons from stack view
     func removeButtonsFromStackView() {
         
         for button in entrantSubTypeStackView.arrangedSubviews {
@@ -715,7 +731,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //Reset all text fields
+    //Function to reset all text fields
     func resetTextFields() {
         
         selectedContractProjectNumber = nil
@@ -731,6 +747,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     //---------------------------
     //MARK: Prepare For Segue
     //---------------------------
+    
+    //Assign the guest variable in the PassViewController to the guest variable in this viewController. Allows passing data between view controllers
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ShowPass" {
