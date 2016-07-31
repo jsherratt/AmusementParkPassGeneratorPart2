@@ -37,6 +37,11 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     //-----------------------
     //MARK: Outlets
     //-----------------------
+
+    //Constraints
+    @IBOutlet weak var dateOfBirthStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cityStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var companyStackViewConstraint: NSLayoutConstraint!
     
     //Stackview
     @IBOutlet weak var entrantSubTypeStackView: UIStackView!
@@ -72,6 +77,10 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         //Add tap gesture recognizer to dismiss the keyboard when the user taps outside of the text field
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGestureRecognizer)
+        
+        //Add notification observers when the keyboard shows and hides
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     //Reset everything on return to the view. For example when the user presses create new pass in the pass view controller
@@ -798,6 +807,38 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    //-----------------------
+    //MARK: Keyboard
+    //-----------------------
+    
+    //Adjust constraints when keyboard shows
+    func keyboardWillShow(notification: NSNotification) {
+        
+        UIView.animateWithDuration(2.0, animations: {
+            self.dateOfBirthStackViewConstraint.constant = 20
+            self.cityStackViewConstraint.constant = 20
+            self.companyStackViewConstraint.constant = 20
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    //Adjust constraints when keyboard hides
+    func keyboardWillHide(notification: NSNotification) {
+        
+        UIView.animateWithDuration(2.0, animations: {
+            self.dateOfBirthStackViewConstraint.constant = 50
+            self.cityStackViewConstraint.constant = 40
+            self.companyStackViewConstraint.constant = 40
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    //Deinit both of the notification observers
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     //-----------------------

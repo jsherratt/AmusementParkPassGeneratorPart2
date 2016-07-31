@@ -290,7 +290,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                        <integer key="value" value="9"/>
+                                                        <integer key="value" value="11"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
@@ -831,7 +831,7 @@
                             <constraint firstItem="ER5-fD-pUM" firstAttribute="top" secondItem="OBv-7F-wej" secondAttribute="bottom" constant="100" id="Ds3-HS-CgA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9Fk-ee-DhT" secondAttribute="leading" id="E1e-P6-lCd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MFR-cW-bzb" secondAttribute="trailing" id="H4L-N5-OSr"/>
-                            <constraint firstItem="tze-OS-b1r" firstAttribute="top" secondItem="bdQ-wz-f6T" secondAttribute="bottom" constant="50" id="HVB-yq-yc8"/>
+                            <constraint firstItem="tze-OS-b1r" firstAttribute="top" secondItem="bdQ-wz-f6T" secondAttribute="bottom" constant="40" id="HVB-yq-yc8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zLy-vh-Avh" secondAttribute="trailing" id="IH4-La-MTC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tze-OS-b1r" secondAttribute="trailing" id="IxR-ox-i6m"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tze-OS-b1r" secondAttribute="leading" id="Pvu-zS-O1W"/>
@@ -842,11 +842,11 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="nHj-pI-TO6" secondAttribute="trailing" id="TNt-cZ-i0E"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ER5-fD-pUM" secondAttribute="leading" id="U9e-v1-goT"/>
-                            <constraint firstItem="bdQ-wz-f6T" firstAttribute="top" secondItem="M92-ad-isO" secondAttribute="bottom" constant="50" id="Y0A-zr-cJn"/>
+                            <constraint firstItem="bdQ-wz-f6T" firstAttribute="top" secondItem="M92-ad-isO" secondAttribute="bottom" constant="40" id="Y0A-zr-cJn"/>
                             <constraint firstItem="nHj-pI-TO6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fui-rf-uGH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ER5-fD-pUM" secondAttribute="trailing" id="jt8-Q0-61E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wvb-Rw-Sw6" secondAttribute="trailing" constant="-20" id="kUB-8h-5oK"/>
-                            <constraint firstItem="MFR-cW-bzb" firstAttribute="top" secondItem="tze-OS-b1r" secondAttribute="bottom" constant="55" id="kdv-Kw-0Tb"/>
+                            <constraint firstItem="MFR-cW-bzb" firstAttribute="top" secondItem="tze-OS-b1r" secondAttribute="bottom" constant="40" id="kdv-Kw-0Tb"/>
                             <constraint firstItem="zLy-vh-Avh" firstAttribute="top" secondItem="OBv-7F-wej" secondAttribute="bottom" constant="20" id="m9p-aS-HRY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdQ-wz-f6T" secondAttribute="trailing" id="mR4-69-i2s"/>
                             <constraint firstItem="wvb-Rw-Sw6" firstAttribute="top" secondItem="nHj-pI-TO6" secondAttribute="bottom" id="oq1-iZ-mJ6"/>
@@ -936,8 +936,11 @@
                     </view>
                     <connections>
                         <outlet property="addressTextField" destination="Sar-5l-iWk" id="xlM-pc-JOe"/>
+                        <outlet property="cityStackViewConstraint" destination="kdv-Kw-0Tb" id="uOz-gc-m6f"/>
                         <outlet property="cityTextField" destination="BZg-Ht-PfJ" id="nn5-KS-O1m"/>
+                        <outlet property="companyStackViewConstraint" destination="Y0A-zr-cJn" id="F6C-6K-o22"/>
                         <outlet property="companyTextField" destination="uYf-Ew-5Ta" id="cWf-NL-qMO"/>
+                        <outlet property="dateOfBirthStackViewConstraint" destination="SqK-hh-lkU" id="YKI-CX-KAY"/>
                         <outlet property="dateOfBirthTextField" destination="A0C-gk-Xov" id="dDY-9u-Su2"/>
                         <outlet property="dateOfVisitTextField" destination="R07-9P-Bg6" id="aT9-oM-8Qc"/>
                         <outlet property="entrantSubTypeStackView" destination="PuV-8W-Q95" id="7cb-Ap-D9t"/>
@@ -1010,7 +1013,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="u4P-iV-bLx">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnny Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9M-ak-4BM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnny Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="K9M-ak-4BM">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                                 <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
